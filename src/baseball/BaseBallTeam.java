@@ -2,10 +2,10 @@ package baseball;
 
 public class BaseBallTeam {
     // フィールド
-    public String name; // チーム名
-    public int win;     // 勝利数
-    public int lose;    // 敗北数
-    public int draw;    // 引分数
+    private String name; // チーム名
+    private int win;     // 勝利数
+    private int lose;    // 敗北数
+    private int draw;    // 引分数
 
     // 引数なしのコンストラクタ
     public BaseBallTeam() {
@@ -19,12 +19,13 @@ public class BaseBallTeam {
         this.draw = draw;
     }
     //勝率計算メソッド
-    public static double getRate(int win, int lose) {
-        double result = (double)(win / (win + lose));
+    public double getRate() {
+        double result = (double)this.win / ((double)this.win + (double)this.lose);
         return result;
     }
     // 2022年の成績結果の表示メソッド
     public void report() {
+        double result = getRate();
         System.out.println(this.name + "の2022年の成績は" + this.win + "勝" + this.lose + "敗" + this.draw + "分、勝率は" + result + "です。");
     }
 
